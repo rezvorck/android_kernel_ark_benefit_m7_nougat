@@ -1,0 +1,11 @@
+warning: (ARCH_REQUIRE_GPIOLIB && PINCTRL_AT91 && PINCTRL_MTK_COMMON && PINCTRL_NOMADIK && MFD_TC6393XB && FB_VIA) selects GPIOLIB which has unmet direct dependencies (ARCH_WANT_OPTIONAL_GPIOLIB || ARCH_REQUIRE_GPIOLIB)
+warning: (ARCH_REQUIRE_GPIOLIB && PINCTRL_AT91 && PINCTRL_MTK_COMMON && PINCTRL_NOMADIK && MFD_TC6393XB && FB_VIA) selects GPIOLIB which has unmet direct dependencies (ARCH_WANT_OPTIONAL_GPIOLIB || ARCH_REQUIRE_GPIOLIB)
+drivers/misc/mediatek/connectivity/fmradio/Makefile:28: FM_CHIP := mt6627
+drivers/misc/mediatek/connectivity/fmradio/Makefile:50: core/fm_module.o core/fm_main.o core/fm_config.o core/fm_rds_parser.o core/fm_patch.o core/fm_utils.o core/fm_link.o core/fm_eint.o core/fm_cmd.o mt6627/pub/mt6627_fm_lib.o mt6627/pub/mt6627_fm_rds.o
+drivers/misc/mediatek/connectivity/wlan/Makefile:33: include gen2
+drivers/misc/mediatek/connectivity/wlan/gen2/Makefile:245: fw_config, ./drivers/misc/mediatek/connectivity/wlan/gen2/k37mv1/fw_config.c
+drivers/misc/mediatek/imgsensor/src/mt6735m/camera_hw/Makefile:1: "CONFIG_TABLET_PROJECT:"
+drivers/misc/mediatek/ssw/Makefile:19: "SSW_DIR=./drivers/misc/mediatek/ssw/ssw_single_v2ssw_exist=y"
+WARNING: modpost: Found 49 section mismatch(es).
+To see full details build your kernel with:
+'make CONFIG_DEBUG_SECTION_MISMATCH=y'
