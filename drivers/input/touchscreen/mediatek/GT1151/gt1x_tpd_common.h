@@ -135,7 +135,7 @@ extern s32 gtp_i2c_read_dbl_check(struct i2c_client *client, u16 addr, u8 *rxbuf
 #define GTP_GESTURE_WAKEUP    0 
 
 //#define TPD_PROXIMITY
-#define TPD_HAVE_BUTTON            // report key as coordinate,Vibration feedback
+//#define TPD_HAVE_BUTTON            // report key as coordinate,Vibration feedback
 //#define TPD_WARP_X                  // mirrored x coordinate
 //#define TPD_WARP_Y                  // mirrored y coordinate
 #define GTP_DEBUG_ON          0

@@ -376,14 +376,14 @@ static int stk3x1x_i2c_write_block(struct i2c_client *client, u8 addr, u8 *data,
 }
 
 /*----------------------------------------------------------------------------*/
-static int stk3x1x_get_timing(void)
+/*static int stk3x1x_get_timing(void)
 {
 	return 200;
-/*
+
 	u32 base = I2C2_BASE;
 	return (__raw_readw(mt6516_I2C_HS) << 16) | (__raw_readw(mt6516_I2C_TIMING));
-*/
-}
+
+}*/
 
 /*----------------------------------------------------------------------------*/
 static int stk3x1x_master_recv(struct i2c_client *client, u16 addr, u8 *buf, int count)
