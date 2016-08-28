@@ -1,11 +1,1746 @@
 warning: (ARCH_REQUIRE_GPIOLIB && PINCTRL_AT91 && PINCTRL_MTK_COMMON && PINCTRL_NOMADIK && MFD_TC6393XB && FB_VIA) selects GPIOLIB which has unmet direct dependencies (ARCH_WANT_OPTIONAL_GPIOLIB || ARCH_REQUIRE_GPIOLIB)
 warning: (ARCH_REQUIRE_GPIOLIB && PINCTRL_AT91 && PINCTRL_MTK_COMMON && PINCTRL_NOMADIK && MFD_TC6393XB && FB_VIA) selects GPIOLIB which has unmet direct dependencies (ARCH_WANT_OPTIONAL_GPIOLIB || ARCH_REQUIRE_GPIOLIB)
+kernel/sched/rt.c: In function ‘sched_rt_period_timer’:
+kernel/sched/rt.c:984:5: warning: ‘rt_time_pre’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     printk_deferred(" -= min(%llu, %d*[%llu -> %llu])\n",
+     ^
+kernel/sched/rt.c:968:21: note: ‘rt_time_pre’ was declared here
+    u64 runtime_pre, rt_time_pre;
+                     ^
+kernel/sched/rt.c:984:5: warning: ‘runtime_pre’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     printk_deferred(" -= min(%llu, %d*[%llu -> %llu])\n",
+     ^
+kernel/sched/rt.c:968:8: note: ‘runtime_pre’ was declared here
+    u64 runtime_pre, rt_time_pre;
+        ^
 drivers/misc/mediatek/connectivity/fmradio/Makefile:28: FM_CHIP := mt6627
 drivers/misc/mediatek/connectivity/fmradio/Makefile:50: core/fm_module.o core/fm_main.o core/fm_config.o core/fm_rds_parser.o core/fm_patch.o core/fm_utils.o core/fm_link.o core/fm_eint.o core/fm_cmd.o mt6627/pub/mt6627_fm_lib.o mt6627/pub/mt6627_fm_rds.o
 drivers/misc/mediatek/connectivity/wlan/Makefile:33: include gen2
 drivers/misc/mediatek/connectivity/wlan/gen2/Makefile:245: fw_config, ./drivers/misc/mediatek/connectivity/wlan/gen2/k37mv1/fw_config.c
 drivers/misc/mediatek/imgsensor/src/mt6735m/camera_hw/Makefile:1: "CONFIG_TABLET_PROJECT:"
 drivers/misc/mediatek/ssw/Makefile:19: "SSW_DIR=./drivers/misc/mediatek/ssw/ssw_single_v2ssw_exist=y"
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:35:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_client_main.h:35:10: warning: ‘struct teei_encode’ declared inside parameter list
+   struct teei_session **psession);
+          ^
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_client_main.h:35:10: warning: its scope is only this definition or declaration, which is probably not what you want
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_client_main.h:44:10: warning: ‘struct teei_encode’ declared inside parameter list
+   struct teei_encode **pdec_context);
+          ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:49:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: In function ‘post_teei_invoke_drv’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:277:4: warning: passing argument 2 of ‘smp_call_function_single’ from incompatible pointer type [-Wincompatible-pointer-types]
+    secondary_teei_invoke_drv,
+    ^
+In file included from include/linux/topology.h:33:0,
+                 from include/linux/gfp.h:8,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+include/linux/smp.h:27:5: note: expected ‘smp_call_func_t {aka void (*)(void *)}’ but argument is of type ‘void (*)(void)’
+ int smp_call_function_single(int cpuid, smp_call_func_t func, void *info,
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: In function ‘create_cmd_buff’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:468:19: warning: comparison between pointer and integer
+  if (message_buff == NULL) {
+                   ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:477:24: warning: comparison between pointer and integer
+  if (fdrv_message_buff == NULL) {
+                        ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:488:24: warning: comparison between pointer and integer
+  if (bdrv_message_buff == NULL) {
+                        ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:500:24: warning: comparison between pointer and integer
+  if (tlog_message_buff == NULL) {
+                        ^
+In file included from include/linux/printk.h:291:0,
+                 from include/linux/kernel.h:13,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:2:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:522:32: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+    (unsigned long)virt_to_phys(message_buff),
+                                ^
+include/linux/dynamic_debug.h:79:10: note: in definition of macro ‘dynamic_pr_debug’
+        ##__VA_ARGS__);  \
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:521:2: note: in expansion of macro ‘pr_debug’
+  pr_debug("[%s][%d] message = %lx,  fdrv message = %lx, bdrv_message = %lx, tlog_message = %lx\n", __func__, __LINE__,
+  ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+In file included from include/linux/printk.h:291:0,
+                 from include/linux/kernel.h:13,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:2:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:523:32: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+    (unsigned long)virt_to_phys(fdrv_message_buff),
+                                ^
+include/linux/dynamic_debug.h:79:10: note: in definition of macro ‘dynamic_pr_debug’
+        ##__VA_ARGS__);  \
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:521:2: note: in expansion of macro ‘pr_debug’
+  pr_debug("[%s][%d] message = %lx,  fdrv message = %lx, bdrv_message = %lx, tlog_message = %lx\n", __func__, __LINE__,
+  ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+In file included from include/linux/printk.h:291:0,
+                 from include/linux/kernel.h:13,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:2:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:524:32: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+    (unsigned long)virt_to_phys(bdrv_message_buff),
+                                ^
+include/linux/dynamic_debug.h:79:10: note: in definition of macro ‘dynamic_pr_debug’
+        ##__VA_ARGS__);  \
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:521:2: note: in expansion of macro ‘pr_debug’
+  pr_debug("[%s][%d] message = %lx,  fdrv message = %lx, bdrv_message = %lx, tlog_message = %lx\n", __func__, __LINE__,
+  ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+In file included from include/linux/printk.h:291:0,
+                 from include/linux/kernel.h:13,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:2:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:525:32: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+    (unsigned long)virt_to_phys(tlog_message_buff));
+                                ^
+include/linux/dynamic_debug.h:79:10: note: in definition of macro ‘dynamic_pr_debug’
+        ##__VA_ARGS__);  \
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:521:2: note: in expansion of macro ‘pr_debug’
+  pr_debug("[%s][%d] message = %lx,  fdrv message = %lx, bdrv_message = %lx, tlog_message = %lx\n", __func__, __LINE__,
+  ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:527:42: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  init_cmdbuf((unsigned long)virt_to_phys(message_buff), (unsigned long)virt_to_phys(fdrv_message_buff),
+                                          ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:527:85: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  init_cmdbuf((unsigned long)virt_to_phys(message_buff), (unsigned long)virt_to_phys(fdrv_message_buff),
+                                                                                     ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:528:32: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+    (unsigned long)virt_to_phys(bdrv_message_buff), (unsigned long)virt_to_phys(tlog_message_buff));
+                                ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:528:80: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+    (unsigned long)virt_to_phys(bdrv_message_buff), (unsigned long)virt_to_phys(tlog_message_buff));
+                                                                                ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:460:16: warning: unused variable ‘irq_status’ [-Wunused-variable]
+  unsigned long irq_status = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: In function ‘teei_service_init_first’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:562:26: warning: comparison between pointer and integer
+  if (keymaster_buff_addr == NULL) {
+                          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:571:27: warning: comparison between pointer and integer
+  if (gatekeeper_buff_addr == NULL) {
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: In function ‘teei_service_init_second’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:605:19: warning: comparison between pointer and integer
+  if (fp_buff_addr == NULL) {
+                   ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: In function ‘init_teei_framework’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:653:16: warning: comparison between pointer and integer
+  if (tlog_buff == NULL) {
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:664:12: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+  secure_wq = create_workqueue("Secure Call");
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:671:20: warning: comparison between pointer and integer
+  if (boot_vfs_addr == NULL) {
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:678:42: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  boot_stage1((unsigned long)virt_to_phys(boot_vfs_addr), (unsigned long)virt_to_phys(tlog_buff));
+                                          ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:678:86: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  boot_stage1((unsigned long)virt_to_phys(boot_vfs_addr), (unsigned long)virt_to_phys(tlog_buff));
+                                                                                      ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:3:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:41:0:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: In function ‘teei_client_init’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:1628:38: warning: passing argument 1 of ‘kthread_create_on_node’ from incompatible pointer type [-Wincompatible-pointer-types]
+  teei_fastcall_task = kthread_create(global_fn, NULL, "teei_fastcall_thread");
+                                      ^
+include/linux/kthread.h:14:25: note: in definition of macro ‘kthread_create’
+  kthread_create_on_node(threadfn, data, -1, namefmt, ##arg)
+                         ^
+include/linux/kthread.h:8:21: note: expected ‘int (*)(void *)’ but argument is of type ‘int (*)(void)’
+ struct task_struct *kthread_create_on_node(int (*threadfn)(void *data),
+                     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:1567:16: warning: unused variable ‘tmp_buff’ [-Wunused-variable]
+  unsigned long tmp_buff = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:1565:16: warning: unused variable ‘irq_status’ [-Wunused-variable]
+  unsigned long irq_status = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:1563:7: warning: unused variable ‘prior’ [-Wunused-variable]
+  long prior = 0;
+       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:1560:7: warning: unused variable ‘retVal’ [-Wunused-variable]
+  long retVal = 0;
+       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_client_main.c:283:13: warning: ‘teei_invoke_drv’ defined but not used [-Wunused-function]
+ static void teei_invoke_drv(void)
+             ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/types.h:5,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c:1:
+drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c: In function ‘nt_sched_t_call’:
+include/linux/stddef.h:8:14: warning: passing argument 2 of ‘add_work_entry’ makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c:32:38: note: in expansion of macro ‘NULL’
+  retVal = add_work_entry(SCHED_CALL, NULL);
+                                      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c:13:12: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ extern int add_work_entry(int work_type, unsigned long buff);
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c:23:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/global_function.c:15:13: warning: ‘secondary_nt_sched_t’ defined but not used [-Wunused-function]
+ static void secondary_nt_sched_t(void *info)
+             ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/backward_driver.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:8:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: In function ‘set_ack_vdrv_cmd’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:41:10: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+   memcpy(message_buff, &msg_head, sizeof(struct message_head));
+          ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:42:10: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+   memcpy(message_buff + sizeof(struct message_head), &ack_body, sizeof(struct ack_vdrv_struct));
+          ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: In function ‘register_shared_param_buf’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:80:19: warning: comparison between pointer and integer
+  if (message_buff == NULL) {
+                   ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:91:21: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  handler->param_buf = (unsigned long) __get_free_pages(GFP_KERNEL | GFP_DMA, get_order(ROUND_UP(handler->size, SZ_4K)));
+                     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:116:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff, &msg_head, sizeof(struct message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:117:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff + sizeof(struct message_head), &msg_body, sizeof(struct create_vdrv_struct));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:127:20: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_head, message_buff, sizeof(struct message_head));
+                    ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:128:19: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_ack, message_buff + sizeof(struct message_head), sizeof(struct ack_fast_call_struct));
+                   ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:145:13: warning: passing argument 1 of ‘free_pages’ makes integer from pointer without a cast [-Wint-conversion]
+  free_pages(handler->param_buf, get_order(ROUND_UP(handler->size, SZ_4K)));
+             ^
+In file included from include/linux/slab.h:14:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:1:
+include/linux/gfp.h:388:13: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ extern void free_pages(unsigned long addr, unsigned int order);
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:75:16: warning: unused variable ‘irq_flag’ [-Wunused-variable]
+  unsigned long irq_flag = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: In function ‘reetime_handle’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:203:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: In function ‘vfs_thread_function’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:251:23: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  daulOS_VFS_share_mem = virt_addr;
+                       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: In function ‘vfs_handle’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:309:22: warning: passing argument 1 of ‘vfs_thread_function’ makes integer from pointer without a cast [-Wint-conversion]
+  vfs_thread_function(handler->param_buf, para_vaddr, buff_vaddr);
+                      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:248:5: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ int vfs_thread_function(unsigned long virt_addr, unsigned long para_vaddr, unsigned long buff_vaddr)
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:303:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:8:0:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: At top level:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/backward_driver.h:15:23: warning: ‘printer_share_mem’ defined but not used [-Wunused-variable]
+ static unsigned char *printer_share_mem;
+                       ^
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/backward_driver.h:16:21: warning: ‘printer_shmem_flags’ defined but not used [-Wunused-variable]
+ static unsigned int printer_shmem_flags;
+                     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:188:13: warning: ‘secondary_reetime_handle’ defined but not used [-Wunused-function]
+ static void secondary_reetime_handle(void *info)
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:289:13: warning: ‘secondary_vfs_handle’ defined but not used [-Wunused-function]
+ static void secondary_vfs_handle(void *info)
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c: In function ‘vfs_thread_function’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/backward_driver.c:260:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/irq_register.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:12:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘get_response_smc_cmd’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:21:24: warning: passing argument 1 of ‘get_nq_entry’ makes pointer from integer without a cast [-Wint-conversion]
+  nq_ent = get_nq_entry(t_nt_buffer);
+                        ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:12:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/irq_register.h:41:23: note: expected ‘unsigned char *’ but argument is of type ‘long unsigned int’
+ extern unsigned char *get_nq_entry(unsigned char *buffer_addr);
+                       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:21:9: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+  nq_ent = get_nq_entry(t_nt_buffer);
+         ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_sched_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:58:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_sched_irq_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_soter_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:105:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_soter_irq_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_error_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:148:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_error_irq_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_fp_ack_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:190:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_fp_ack_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_keymaster_ack_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:231:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_keymaster_ack_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘add_bdrv_queue’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:265:13: warning: passing argument 1 of ‘queue_work’ from incompatible pointer type [-Wincompatible-pointer-types]
+  queue_work(secure_wq, &(work_ent.work));
+             ^
+In file included from include/linux/srcu.h:34:0,
+                 from include/linux/notifier.h:15,
+                 from include/linux/memory_hotplug.h:6,
+                 from include/linux/mmzone.h:796,
+                 from include/linux/gfp.h:5,
+                 from include/linux/irq.h:17,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:1:
+include/linux/workqueue.h:472:20: note: expected ‘struct workqueue_struct *’ but argument is of type ‘struct work_queue *’
+ static inline bool queue_work(struct workqueue_struct *wq,
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_bdrv_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:296:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_bdrv_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_tlog_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:353:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, tlog_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_boot_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:385:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_boot_irq_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/types.h:5,
+                 from include/linux/smp.h:10,
+                 from include/linux/irq.h:12,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:1:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘load_func’:
+include/linux/stddef.h:8:14: warning: passing argument 2 of ‘vfs_thread_function’ makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:421:37: note: in expansion of macro ‘NULL’
+  vfs_thread_function(boot_vfs_addr, NULL, NULL);
+                                     ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:12:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/irq_register.h:39:12: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ extern int vfs_thread_function(unsigned long virt_addr, unsigned long para_vaddr, unsigned long buff_vaddr);
+            ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/types.h:5,
+                 from include/linux/smp.h:10,
+                 from include/linux/irq.h:12,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:1:
+include/linux/stddef.h:8:14: warning: passing argument 3 of ‘vfs_thread_function’ makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:421:43: note: in expansion of macro ‘NULL’
+  vfs_thread_function(boot_vfs_addr, NULL, NULL);
+                                           ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:12:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/irq_register.h:39:12: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ extern int vfs_thread_function(unsigned long virt_addr, unsigned long para_vaddr, unsigned long buff_vaddr);
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:427:35: warning: passing argument 2 of ‘smp_call_function_single’ from incompatible pointer type [-Wincompatible-pointer-types]
+  smp_call_function_single(cpu_id, secondary_load_func, NULL, 1);
+                                   ^
+In file included from include/linux/irq.h:12:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:1:
+include/linux/smp.h:27:5: note: expected ‘smp_call_func_t {aka void (*)(void *)}’ but argument is of type ‘void (*)(void)’
+ int smp_call_function_single(int cpuid, smp_call_func_t func, void *info,
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘work_func’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:441:24: warning: passing argument 1 of ‘Flush_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+   Flush_Dcache_By_Area(reetime.param_buf, reetime.param_buf + reetime.size);
+                        ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:10:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_id.h:80:20: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ static inline void Flush_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:441:43: warning: passing argument 2 of ‘Flush_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+   Flush_Dcache_By_Area(reetime.param_buf, reetime.param_buf + reetime.size);
+                                           ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:10:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_id.h:80:20: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ static inline void Flush_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:444:24: warning: passing argument 1 of ‘Flush_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+   Flush_Dcache_By_Area(vfs_handler.param_buf, vfs_handler.param_buf + vfs_handler.size);
+                        ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:10:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_id.h:80:20: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ static inline void Flush_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:444:47: warning: passing argument 2 of ‘Flush_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+   Flush_Dcache_By_Area(vfs_handler.param_buf, vfs_handler.param_buf + vfs_handler.size);
+                                               ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:10:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_id.h:80:20: note: expected ‘long unsigned int’ but argument is of type ‘void *’
+ static inline void Flush_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘nt_switch_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:461:14: warning: passing argument 1 of ‘queue_work’ from incompatible pointer type [-Wincompatible-pointer-types]
+   queue_work(secure_wq, &(load_ent.work));
+              ^
+In file included from include/linux/srcu.h:34:0,
+                 from include/linux/notifier.h:15,
+                 from include/linux/memory_hotplug.h:6,
+                 from include/linux/mmzone.h:796,
+                 from include/linux/gfp.h:5,
+                 from include/linux/irq.h:17,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:1:
+include/linux/workqueue.h:472:20: note: expected ‘struct workqueue_struct *’ but argument is of type ‘struct work_queue *’
+ static inline bool queue_work(struct workqueue_struct *wq,
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:478:16: warning: passing argument 1 of ‘queue_work’ from incompatible pointer type [-Wincompatible-pointer-types]
+     queue_work(secure_wq, &(work_ent.work));
+                ^
+In file included from include/linux/srcu.h:34:0,
+                 from include/linux/notifier.h:15,
+                 from include/linux/memory_hotplug.h:6,
+                 from include/linux/mmzone.h:796,
+                 from include/linux/gfp.h:5,
+                 from include/linux/irq.h:17,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:1:
+include/linux/workqueue.h:472:20: note: expected ‘struct workqueue_struct *’ but argument is of type ‘struct work_queue *’
+ static inline bool queue_work(struct workqueue_struct *wq,
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:456:31: warning: unused variable ‘msg_ack’ [-Wunused-variable]
+  struct ack_fast_call_struct *msg_ack = NULL;
+                               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:452:16: warning: unused variable ‘irq_flag’ [-Wunused-variable]
+  unsigned long irq_flag = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_switch_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:530:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, nt_switch_irq_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘ut_drv_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:558:21: warning: passing argument 1 of ‘nt_get_non_irq_num’ from incompatible pointer type [-Wincompatible-pointer-types]
+  nt_get_non_irq_num(&irq_id);
+                     ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:13:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/nt_smc_call.h:775:20: note: expected ‘uint32_t * {aka unsigned int *}’ but argument is of type ‘uint64_t * {aka long long unsigned int *}’
+ static inline void nt_get_non_irq_num(uint32_t *p0)
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c: In function ‘register_ut_irq_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:609:32: warning: passing argument 2 of ‘request_irq’ from incompatible pointer type [-Wincompatible-pointer-types]
+  retVal = request_irq(irq_num, ut_drv_irq_handler, 0, "tz_drivers_service", NULL);
+                                ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:7:0:
+include/linux/interrupt.h:128:1: note: expected ‘irq_handler_t {aka enum irqreturn (*)(int,  void *)}’ but argument is of type ‘irqreturn_t (*)(void) {aka enum irqreturn (*)(void)}’
+ request_irq(unsigned int irq, irq_handler_t handler, unsigned long flags,
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/irq_register.c:627:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/notify_queue.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:6:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c: In function ‘create_notify_queue’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:46:18: warning: comparison between pointer and integer
+  if (nt_t_buffer == NULL) {
+                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:58:18: warning: comparison between pointer and integer
+  if (t_nt_buffer == NULL) {
+                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:73:42: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  msg_body.n_t_nq_phy_addr = virt_to_phys(nt_t_buffer);
+                                          ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:2:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:75:42: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  msg_body.t_n_nq_phy_addr = virt_to_phys(t_nt_buffer);
+                                          ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:2:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:81:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(msg_buff, &msg_head, sizeof(struct message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:82:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(msg_buff + sizeof(struct message_head), &msg_body, sizeof(struct create_NQ_struct));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:94:20: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_head, msg_buff, sizeof(struct message_head));
+                    ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:95:19: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_ack, msg_buff + sizeof(struct message_head), sizeof(struct ack_fast_call_struct));
+                   ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:27:16: warning: unused variable ‘irq_flag’ [-Wunused-variable]
+  unsigned long irq_flag = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c: In function ‘add_nq_entry’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:157:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  temp_entry = nt_t_buffer + NQ_BLOCK_SIZE + temp_head->end_index * NQ_BLOCK_SIZE;
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:161:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  temp_entry->buffer_addr = command_buff;
+                          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c: In function ‘get_nq_entry’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:175:28: warning: passing argument 1 of ‘Invalidate_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+  Invalidate_Dcache_By_Area(buffer_addr, (unsigned long)buffer_addr + NQ_BUFF_SIZE);
+                            ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:7:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_id.h:114:20: note: expected ‘long unsigned int’ but argument is of type ‘unsigned char *’
+ static inline void Invalidate_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:183:13: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+  temp_entry = buffer_addr + NQ_BLOCK_SIZE + temp_head->start_index * NQ_BLOCK_SIZE;
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:188:9: warning: return from incompatible pointer type [-Wincompatible-pointer-types]
+  return temp_entry;
+         ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c: In function ‘create_nq_buffer’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:205:15: warning: passing argument 1 of ‘init_nq_head’ makes pointer from integer without a cast [-Wint-conversion]
+  init_nq_head(t_nt_buffer);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:125:6: note: expected ‘unsigned char *’ but argument is of type ‘long unsigned int’
+ long init_nq_head(unsigned char *buffer_addr)
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:206:15: warning: passing argument 1 of ‘init_nq_head’ makes pointer from integer without a cast [-Wint-conversion]
+  init_nq_head(nt_t_buffer);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/notify_queue.c:125:6: note: expected ‘unsigned char *’ but argument is of type ‘long unsigned int’
+ long init_nq_head(unsigned char *buffer_addr)
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_uint32’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:752:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    void __user *pt = compat_ptr((unsigned int *)addr);
+                                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:786:17: warning: comparison between pointer and integer
+    if (enc.data != NULL) {
+                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:788:34: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     void __user *pt = compat_ptr((unsigned int *)addr);
+                                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:788:18: warning: unused variable ‘pt’ [-Wunused-variable]
+     void __user *pt = compat_ptr((unsigned int *)addr);
+                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_uint32_64bit’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:875:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    void __user *pt = compat_ptr((unsigned int *)addr);
+                                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:880:86: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    *(u32 *)((char *)enc_context->ker_req_data_addr + enc_context->enc_req_offset) = *(u32 *)enc.data;
+                                                                                      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:908:17: warning: comparison between pointer and integer
+    if (enc.data != NULL) {
+                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:910:34: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     void __user *pt = compat_ptr((unsigned int *)addr);
+                                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:910:18: warning: unused variable ‘pt’ [-Wunused-variable]
+     void __user *pt = compat_ptr((unsigned int *)addr);
+                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_array’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:990:5: warning: passing argument 2 of ‘copy_from_user’ makes pointer from integer without a cast [-Wint-conversion]
+     (unsigned int)enc.data , enc.len)) {
+     ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:3:0:
+./arch/arm/include/asm/uaccess.h:488:42: note: expected ‘const void *’ but argument is of type ‘unsigned int’
+ static inline unsigned long __must_check copy_from_user(void *to, const void __user *from, unsigned long n)
+                                          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1024:17: warning: comparison between pointer and integer
+    if (enc.data != NULL) {
+                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_array_64bit’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1098:6: warning: passing argument 2 of ‘copy_from_user’ makes pointer from integer without a cast [-Wint-conversion]
+      enc.data , enc.len)) {
+      ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:3:0:
+./arch/arm/include/asm/uaccess.h:488:42: note: expected ‘const void *’ but argument is of type ‘long long unsigned int’
+ static inline unsigned long __must_check copy_from_user(void *to, const void __user *from, unsigned long n)
+                                          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1132:17: warning: comparison between pointer and integer
+    if (enc.data != NULL) {
+                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_mem_ref’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1196:49: warning: comparison between pointer and integer
+   if (temp_shared_mem && temp_shared_mem->index == (unsigned int)addr) {
+                                                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1211:33: warning: comparison between pointer and integer
+      if (temp_shared_mem->index == (u32)enc.data) {
+                                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_mem_ref_64bit’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1339:49: warning: comparison between pointer and integer
+   if (temp_shared_mem && temp_shared_mem->index == enc.data) {
+                                                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1337:7: warning: unused variable ‘addr’ [-Wunused-variable]
+   u64 addr = enc.data;
+       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1354:37: warning: comparison between pointer and integer
+      if (((temp_shared_mem->index)) == enc.data) {
+                                     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1324:15: warning: unused variable ‘temp_addr’ [-Wunused-variable]
+  unsigned int temp_addr;
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_decode_uint32’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1563:15: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    dec.data = (void *)((uint64_t)(dec_context->meta[dec_context->dec_res_pos].usr_addr));
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1563:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    dec.data = (void *)((uint64_t)(dec_context->meta[dec_context->dec_res_pos].usr_addr));
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1575:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   unsigned int value1 = 0;
+   ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1577:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   if (((u32 *)dec.data) == NULL) {
+        ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1585:5: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    *(unsigned long *)dec.data = value1;
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_decode_array_space’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1631:16: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     dec.data = (void *)dec_context->meta[dec_context->dec_res_pos].usr_addr;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1631:14: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     dec.data = (void *)dec_context->meta[dec_context->dec_res_pos].usr_addr;
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1633:21: warning: passing argument 1 of ‘copy_to_user’ makes pointer from integer without a cast [-Wint-conversion]
+    if (copy_to_user(dec.data, (char *)dec_context->ker_res_data_addr + dec_context->dec_offset,
+                     ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:3:0:
+./arch/arm/include/asm/uaccess.h:497:42: note: expected ‘void *’ but argument is of type ‘long long unsigned int’
+ static inline unsigned long __must_check copy_to_user(void __user *to, const void *from, unsigned long n)
+                                          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1658:15: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    dec.data = (void *)dec_context->meta[dec_context->dec_res_pos].usr_addr;
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1658:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    dec.data = (void *)dec_context->meta[dec_context->dec_res_pos].usr_addr;
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1659:4: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+    unsigned long pmem = *(u32 *)((char *)dec_context->ker_res_data_addr + dec_context->dec_offset);
+    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_shared_mem_free’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1825:52: warning: comparison between pointer and integer
+     if (temp_shared_mem && temp_shared_mem->u_addr == mem_info.user_mem_addr) {
+                                                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1829:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       free_pages((u64)temp_shared_mem->k_addr,
+                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1810:6: warning: unused variable ‘session_found’ [-Wunused-variable]
+  int session_found = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1808:23: warning: unused variable ‘temp_ses’ [-Wunused-variable]
+  struct teei_session *temp_ses = NULL;
+                       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_close_session_for_service_plus’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1883:6: warning: unused variable ‘retVal’ [-Wunused-variable]
+  int retVal = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1882:16: warning: unused variable ‘dev_file_id’ [-Wunused-variable]
+  unsigned long dev_file_id = (unsigned long)private_data;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:1459:12: warning: ‘print_context’ defined but not used [-Wunused-function]
+ static int print_context(void)
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c: In function ‘teei_client_encode_uint32_64bit’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_capi.c:877:4: warning: ignoring return value of ‘copy_from_user’, declared with attribute warn_unused_result [-Wunused-result]
+    copy_from_user(&value, pt, 4);
+    ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_fp.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:5:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:11:0: warning: "FP_SYS_NO" redefined
+ #define FP_SYS_NO       100
+ ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_fp.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:5:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:42:0: note: this is the location of the previous definition
+ #define FP_SYS_NO               (100)
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c: In function ‘create_fp_fdrv’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:30:19: warning: comparison between pointer and integer
+  if (message_buff == NULL) {
+                   ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:1:
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:32:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:38:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:46:16: warning: comparison between pointer and integer
+  if (temp_addr == NULL) {
+                ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:1:
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:48:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:61:40: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  msg_body.fdrv_phy_addr = virt_to_phys(temp_addr);
+                                        ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:2:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:67:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff, &msg_head, sizeof(struct message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:68:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff + sizeof(struct message_head), &msg_body, sizeof(struct create_fdrv_struct));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:79:20: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_head, message_buff, sizeof(struct message_head));
+                    ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:80:19: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_ack, message_buff + sizeof(struct message_head), sizeof(struct ack_fast_call_struct));
+                   ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:93:10: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   retVal = NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:24:16: warning: unused variable ‘irq_flag’ [-Wunused-variable]
+  unsigned long irq_flag = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c: In function ‘set_fp_command’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:108:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  struct fdrv_message_head fdrv_msg_head;
+  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:115:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(fdrv_message_buff, &fdrv_msg_head, sizeof(struct fdrv_message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c: In function ‘send_fp_command’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:154:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_fp.c:135:13: warning: ‘secondary_send_fp_command’ defined but not used [-Wunused-function]
+ static void secondary_send_fp_command(void *info)
+             ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:11:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c: In function ‘set_sch_nq_cmd’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:27:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff, &msg_head, sizeof(struct message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/cpumask.h:11,
+                 from include/linux/sched.h:24,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:3:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c: In function ‘teei_smc’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:46:15: warning: passing argument 1 of ‘add_nq_entry’ makes pointer from integer without a cast [-Wint-conversion]
+  add_nq_entry(cmd_addr, size, valid_flag);
+               ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:8:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_smc_call.h:58:12: note: expected ‘unsigned char *’ but argument is of type ‘u32 {aka unsigned int}’
+ extern int add_nq_entry(unsigned char *command_buff, int command_length, int valid_flag);
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:44:6: warning: unused variable ‘retVal’ [-Wunused-variable]
+  int retVal = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c: In function ‘__teei_smc_call’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:190:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  smc_cmd_phys = virt_to_phys((void *)smc_cmd);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:212:17: warning: passing argument 1 of ‘teei_smc’ makes integer from pointer without a cast [-Wint-conversion]
+  ret = teei_smc(smc_cmd_phys, sizeof(struct teei_smc_cmd), NQ_VALID);
+                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:42:12: note: expected ‘u32 {aka unsigned int}’ but argument is of type ‘void *’
+ static u32 teei_smc(u32 cmd_addr, int size, int valid_flag)
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c: In function ‘teei_smc_call’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:277:27: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  smc_call_entry.local_cmd = local_smc_cmd;
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:284:25: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  smc_call_entry.cmd_buf = cmd_buf;
+                         ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:288:27: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  smc_call_entry.meta_data = meta_data;
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:289:27: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  smc_call_entry.info_data = info_data;
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:267:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_smc_call.c:219:13: warning: ‘secondary_teei_smc_call’ defined but not used [-Wunused-function]
+ static void secondary_teei_smc_call(void *info)
+             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘tlog_handler’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:62:14: warning: passing argument 1 of ‘queue_work’ from incompatible pointer type [-Wincompatible-pointer-types]
+   queue_work(secure_wq, &(tlog_ent[pos].work));
+              ^
+In file included from include/linux/srcu.h:34:0,
+                 from include/linux/notifier.h:15,
+                 from include/linux/memory_hotplug.h:6,
+                 from include/linux/mmzone.h:796,
+                 from include/linux/gfp.h:5,
+                 from include/linux/irq.h:17,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:4:
+include/linux/workqueue.h:472:20: note: expected ‘struct workqueue_struct *’ but argument is of type ‘struct work_queue *’
+ static inline bool queue_work(struct workqueue_struct *wq,
+                    ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:1:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: At top level:
+include/linux/stddef.h:8:14: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:76:26: note: in expansion of macro ‘NULL’
+ unsigned long tlog_buf = NULL;
+                          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘init_tlog_buff_head’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:87:21: warning: comparison between pointer and integer
+  if (tlog_virt_addr == NULL)
+                     ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/cpumask.h:11,
+                 from include/linux/smp.h:12,
+                 from include/linux/irq.h:12,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:4:
+./arch/arm/include/asm/string.h:31:16: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+    void *__p = (p); size_t __n = n;   \
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:96:2: note: in expansion of macro ‘memset’
+  memset(tlog_virt_addr, 0, buff_size);
+  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:84:7: warning: unused variable ‘retVal’ [-Wunused-variable]
+  long retVal = 0;
+       ^
+In file included from include/linux/printk.h:6:0,
+                 from include/linux/kernel.h:13,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:1:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘handle_tlog’:
+include/linux/kern_levels.h:4:18: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+ #define KERN_SOH "\001"  /* ASCII Start Of Header */
+                  ^
+include/linux/kern_levels.h:10:18: note: in expansion of macro ‘KERN_SOH’
+ #define KERN_ERR KERN_SOH "3" /* error conditions */
+                  ^
+include/linux/printk.h:425:9: note: in expansion of macro ‘KERN_ERR’
+  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+         ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:146:4: note: in expansion of macro ‘pr_err’
+    pr_err("[%s][%d]fail to print tlog last_log_pointer = %x, start_log_pointer = %x!\n", __func__, __LINE__, last_log_pointer, start_log_pointer);
+    ^
+include/linux/kern_levels.h:4:18: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long unsigned int’ [-Wformat=]
+ #define KERN_SOH "\001"  /* ASCII Start Of Header */
+                  ^
+include/linux/kern_levels.h:10:18: note: in expansion of macro ‘KERN_SOH’
+ #define KERN_ERR KERN_SOH "3" /* error conditions */
+                  ^
+include/linux/printk.h:425:9: note: in expansion of macro ‘KERN_ERR’
+  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+         ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:146:4: note: in expansion of macro ‘pr_err’
+    pr_err("[%s][%d]fail to print tlog last_log_pointer = %x, start_log_pointer = %x!\n", __func__, __LINE__, last_log_pointer, start_log_pointer);
+    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘tlog_worker’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:160:23: warning: comparison between pointer and integer
+  if (tlog_thread_buff == NULL) {
+                       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘create_tlog_thread’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:197:21: warning: comparison between pointer and integer
+  if (tlog_virt_addr == NULL)
+                     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘init_utgate_log_buff_head’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:242:20: warning: comparison between pointer and integer
+  if (log_virt_addr == NULL)
+                    ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/cpumask.h:11,
+                 from include/linux/smp.h:12,
+                 from include/linux/irq.h:12,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:4:
+./arch/arm/include/asm/string.h:31:16: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+    void *__p = (p); size_t __n = n;   \
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:250:2: note: in expansion of macro ‘memset’
+  memset(log_virt_addr, 0, buff_size);
+  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:251:18: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+  utgate_log_head = (struct ut_log_buf_head *)log_virt_addr;
+                  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:240:7: warning: unused variable ‘retVal’ [-Wunused-variable]
+  long retVal = 0;
+       ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘utgate_log_worker’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:302:22: warning: comparison between pointer and integer
+  if (utgate_log_buff == NULL) {
+                      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c: In function ‘create_utgate_log_thread’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/tlog.c:339:20: warning: comparison between pointer and integer
+  if (log_virt_addr == NULL)
+                    ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:7:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:15:0: warning: "FP_SYS_NO" redefined
+ #define FP_SYS_NO 100
+ ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:7:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:42:0: note: this is the location of the previous definition
+ #define FP_SYS_NO               (100)
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:16:0: warning: "KEYMASTER_SYS_NO" redefined
+ #define KEYMASTER_SYS_NO 101
+ ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:7:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:45:0: note: this is the location of the previous definition
+ #define KEYMASTER_SYS_NO               (101)
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:66:32: warning: ‘struct service_handler’ declared inside parameter list
+ extern int __vfs_handle(struct service_handler *handler);
+                                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:66:32: warning: its scope is only this definition or declaration, which is probably not what you want
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:67:36: warning: ‘struct service_handler’ declared inside parameter list
+ extern int __reetime_handle(struct service_handler *handler);
+                                    ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c: In function ‘handle_bdrv_call’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:287:29: warning: passing argument 1 of ‘__vfs_handle’ from incompatible pointer type [-Wincompatible-pointer-types]
+   cd->retVal = __vfs_handle(cd->handler);
+                             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:66:12: note: expected ‘struct service_handler *’ but argument is of type ‘struct service_handler *’
+ extern int __vfs_handle(struct service_handler *handler);
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:292:33: warning: passing argument 1 of ‘__reetime_handle’ from incompatible pointer type [-Wincompatible-pointer-types]
+   cd->retVal = __reetime_handle(cd->handler);
+                                 ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:67:12: note: expected ‘struct service_handler *’ but argument is of type ‘struct service_handler *’
+ extern int __reetime_handle(struct service_handler *handler);
+            ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c: In function ‘switch_fn’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:361:29: warning: passing argument 1 of ‘handle_capi_call’ makes pointer from integer without a cast [-Wint-conversion]
+   retVal = handle_capi_call(switch_ent->buff_addr);
+                             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:199:5: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ int handle_capi_call(void *buff)
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:370:29: warning: passing argument 1 of ‘handle_fdrv_call’ makes pointer from integer without a cast [-Wint-conversion]
+   retVal = handle_fdrv_call(switch_ent->buff_addr);
+                             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:238:5: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ int handle_fdrv_call(void *buff)
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:379:29: warning: passing argument 1 of ‘handle_bdrv_call’ makes pointer from integer without a cast [-Wint-conversion]
+   retVal = handle_bdrv_call(switch_ent->buff_addr);
+                             ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:277:5: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ int handle_bdrv_call(void *buff)
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:388:30: warning: passing argument 1 of ‘handle_sched_call’ makes pointer from integer without a cast [-Wint-conversion]
+   retVal = handle_sched_call(switch_ent->buff_addr);
+                              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:192:5: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ int handle_sched_call(void *buff)
+     ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:405:10: warning: ‘return’ with a value, in function returning void
+   return retVal;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:408:9: warning: ‘return’ with a value, in function returning void
+  return 0;
+         ^
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c:6:0:
+drivers/misc/mediatek/teei/V1.0/tz_driver/switch_queue.c: In function ‘nt_sched_t’:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/nt_smc_call.h:689:2: warning: ‘p0’ is used uninitialized in this function [-Wuninitialized]
+  smc_out(NT_SCHED_T_32, p0, p1, p2);
+  ^
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/nt_smc_call.h:689:2: warning: ‘p1’ is used uninitialized in this function [-Wuninitialized]
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/nt_smc_call.h:689:2: warning: ‘p2’ is used uninitialized in this function [-Wuninitialized]
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_keymaster.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:5:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:11:0: warning: "KEYMASTER_SYS_NO" redefined
+ #define KEYMASTER_SYS_NO       101
+ ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_keymaster.h:1:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:5:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:45:0: note: this is the location of the previous definition
+ #define KEYMASTER_SYS_NO               (101)
+ ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c: In function ‘create_keymaster_fdrv’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:30:19: warning: comparison between pointer and integer
+  if (message_buff == NULL) {
+                   ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:1:
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:32:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:38:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:47:16: warning: comparison between pointer and integer
+  if (temp_addr == NULL) {
+                ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:1:
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:49:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:62:40: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  msg_body.fdrv_phy_addr = virt_to_phys(temp_addr);
+                                        ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:2:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:68:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff, &msg_head, sizeof(struct message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:69:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff + sizeof(struct message_head), &msg_body, sizeof(struct create_fdrv_struct));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:79:20: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_head, message_buff, sizeof(struct message_head));
+                    ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:80:19: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_ack, message_buff + sizeof(struct message_head), sizeof(struct ack_fast_call_struct));
+                   ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:93:10: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   retVal = NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:24:16: warning: unused variable ‘irq_flag’ [-Wunused-variable]
+  unsigned long irq_flag = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c: In function ‘set_keymaster_command’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:108:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  struct fdrv_message_head fdrv_msg_head;
+  ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:115:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(fdrv_message_buff, &fdrv_msg_head, sizeof(struct fdrv_message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c: In function ‘send_keymaster_command’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:154:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_keymaster.c:135:13: warning: ‘secondary_send_keymaster_command’ defined but not used [-Wunused-function]
+ static void secondary_send_keymaster_command(void *info)
+             ^
+In file included from ./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_gatekeeper.h:3:0,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:5:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/utdriver_macro.h:65:0: warning: "UT_DMA_ZONE" redefined
+ #define UT_DMA_ZONE
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+In file included from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:5:0:
+./drivers/misc/mediatek/teei/V1.0/tz_driver/include/teei_gatekeeper.h:51:1: warning: useless storage class specifier in empty declaration
+ };
+ ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:1:
+include/linux/stddef.h:8:14: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:13:38: note: in expansion of macro ‘NULL’
+ unsigned long gatekeeper_buff_addr = NULL;
+                                      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c: In function ‘set_gatekeeper_command’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:24:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(fdrv_message_buff, &fdrv_msg_head, sizeof(struct fdrv_message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c: In function ‘create_gatekeeper_fdrv’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:39:19: warning: comparison between pointer and integer
+  if (message_buff == NULL) {
+                   ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:1:
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:41:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:46:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:56:16: warning: comparison between pointer and integer
+  if (temp_addr == NULL) {
+                ^
+In file included from ./include/uapi/linux/posix_types.h:4:0,
+                 from include/uapi/linux/types.h:13,
+                 from include/linux/compiler.h:189,
+                 from include/linux/linkage.h:4,
+                 from include/linux/kernel.h:6,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:1:
+include/linux/stddef.h:8:14: warning: return makes integer from pointer without a cast [-Wint-conversion]
+ #define NULL ((void *)0)
+              ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:58:10: note: in expansion of macro ‘NULL’
+   return NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:71:40: warning: passing argument 1 of ‘virt_to_phys’ makes pointer from integer without a cast [-Wint-conversion]
+  msg_body.fdrv_phy_addr = virt_to_phys(temp_addr);
+                                        ^
+In file included from ./arch/arm/include/asm/page.h:163:0,
+                 from ./arch/arm/include/asm/thread_info.h:17,
+                 from include/linux/thread_info.h:54,
+                 from include/asm-generic/preempt.h:4,
+                 from arch/arm/include/generated/asm/preempt.h:1,
+                 from include/linux/preempt.h:18,
+                 from include/linux/spinlock.h:50,
+                 from include/linux/mmzone.h:7,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:2:
+./arch/arm/include/asm/memory.h:277:27: note: expected ‘const volatile void *’ but argument is of type ‘long unsigned int’
+ static inline phys_addr_t virt_to_phys(const volatile void *x)
+                           ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:79:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff, &msg_head, sizeof(struct message_head));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:80:9: warning: passing argument 1 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(message_buff + sizeof(struct message_head), &msg_body, sizeof(struct create_fdrv_struct));
+         ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:89:20: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_head, message_buff, sizeof(struct message_head));
+                    ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:90:19: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+  memcpy(&msg_ack, message_buff + sizeof(struct message_head), sizeof(struct ack_fast_call_struct));
+                   ^
+In file included from include/linux/string.h:17:0,
+                 from include/linux/bitmap.h:8,
+                 from include/linux/nodemask.h:95,
+                 from include/linux/mmzone.h:16,
+                 from include/linux/gfp.h:5,
+                 from include/linux/slab.h:14,
+                 from drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:2:
+./arch/arm/include/asm/string.h:16:15: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ extern void * memcpy(void *, const void *, __kernel_size_t);
+               ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:103:10: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   retVal = NULL;
+          ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:33:16: warning: unused variable ‘irq_flag’ [-Wunused-variable]
+  unsigned long irq_flag = 0;
+                ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c: In function ‘send_gatekeeper_command’:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:143:6: warning: unused variable ‘cpu_id’ [-Wunused-variable]
+  int cpu_id = 0;
+      ^
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c: At top level:
+drivers/misc/mediatek/teei/V1.0/tz_driver/teei_gatekeeper.c:127:13: warning: ‘secondary_send_gatekeeper_command’ defined but not used [-Wunused-function]
+ static void secondary_send_gatekeeper_command(void *info)
+             ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c: In function ‘keymaster_ioctl’:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:143:60: warning: passing argument 2 of ‘Flush_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+   Flush_Dcache_By_Area((unsigned long)keymaster_buff_addr, keymaster_buff_addr + KEYMASTER_SIZE);
+                                                            ^
+In file included from drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:50:0:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/../tz_driver/include/teei_id.h:80:20: note: expected ‘long unsigned int’ but argument is of type ‘char *’
+ static inline void Flush_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:149:33: warning: passing argument 2 of ‘copy_to_user’ makes pointer from integer without a cast [-Wint-conversion]
+   if (copy_to_user((void *)arg, (unsigned long)keymaster_buff_addr, KEYMASTER_SIZE)) {
+                                 ^
+In file included from drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:45:0:
+./arch/arm/include/asm/uaccess.h:497:42: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ static inline unsigned long __must_check copy_to_user(void __user *to, const void *from, unsigned long n)
+                                          ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:183:60: warning: passing argument 2 of ‘Flush_Dcache_By_Area’ makes integer from pointer without a cast [-Wint-conversion]
+   Flush_Dcache_By_Area((unsigned long)keymaster_buff_addr, keymaster_buff_addr + 8);
+                                                            ^
+In file included from drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:50:0:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/../tz_driver/include/teei_id.h:80:20: note: expected ‘long unsigned int’ but argument is of type ‘char *’
+ static inline void Flush_Dcache_By_Area(unsigned long start, unsigned long end)
+                    ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:189:33: warning: passing argument 2 of ‘copy_to_user’ makes pointer from integer without a cast [-Wint-conversion]
+   if (copy_to_user((void *)arg, (unsigned long)keymaster_buff_addr, 8)) {
+                                 ^
+In file included from drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:45:0:
+./arch/arm/include/asm/uaccess.h:497:42: note: expected ‘const void *’ but argument is of type ‘long unsigned int’
+ static inline unsigned long __must_check copy_to_user(void __user *to, const void *from, unsigned long n)
+                                          ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c: At top level:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:230:20: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .unlocked_ioctl = keymaster_ioctl,
+                    ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:230:20: note: (near initialization for ‘keymaster_fops.unlocked_ioctl’)
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:231:18: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .compat_ioctl = keymaster_ioctl,
+                  ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:231:18: note: (near initialization for ‘keymaster_fops.compat_ioctl’)
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c: In function ‘keymaster_init’:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:261:10: warning: ‘return’ with a value, in function returning void
+   return result;
+          ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:304:9: warning: ‘return’ with a value, in function returning void
+  return result;
+         ^
+In file included from include/linux/printk.h:5:0,
+                 from include/linux/kernel.h:13,
+                 from drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:34:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c: At top level:
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:318:13: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+ module_init(keymaster_init);
+             ^
+include/linux/init.h:195:58: note: in definition of macro ‘__define_initcall’
+  __attribute__((__section__(".initcall" #id ".init"))) = fn; \
+                                                          ^
+include/linux/init.h:230:24: note: in expansion of macro ‘device_initcall’
+ #define __initcall(fn) device_initcall(fn)
+                        ^
+include/linux/init.h:284:24: note: in expansion of macro ‘__initcall’
+ #define module_init(x) __initcall(x);
+                        ^
+drivers/misc/mediatek/teei/V1.0/ut_keymaster/ut_keymaster.c:318:1: note: in expansion of macro ‘module_init’
+ module_init(keymaster_init);
+ ^
 WARNING: modpost: Found 49 section mismatch(es).
 To see full details build your kernel with:
 'make CONFIG_DEBUG_SECTION_MISMATCH=y'

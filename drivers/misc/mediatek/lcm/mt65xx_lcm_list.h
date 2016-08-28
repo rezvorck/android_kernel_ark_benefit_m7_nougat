@@ -16,6 +16,7 @@
 
 #include <lcm_drv.h>
 
+extern LCM_DRIVER jd9367_6735_dsi_video_lcm_drv;
 extern LCM_DRIVER otm1282a_hd720_dsi_vdo_60hz_lcm_drv;
 extern LCM_DRIVER ili9881c_hd720_cf1_fs650;
 extern LCM_DRIVER otm1282a_hd720_dsi_vdo_lcm_drv;

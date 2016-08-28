@@ -37,6 +37,11 @@ LCM_DRIVER *lcm_driver_list[] = {
 #if defined(OTM1284A_HD720_DSI_VDO_TM)
 	&otm1284a_hd720_dsi_vdo_tm_lcm_drv,
 #endif
+
+#if defined(JD9367_6735_DSI_VIDEO)
+	&jd9367_6735_dsi_video_lcm_drv,
+#endif
+
 #if defined(ILI9881C_HD720_CF1_FS650)
 	&ili9881c_hd720_cf1_fs650,
 #endif
